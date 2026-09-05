@@ -1,0 +1,259 @@
+/* 1. RESET & GAYA HURUF UTAMA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f3e8ff 0%, #e0f2fe 100%); /* Gradasi Lavender ke Biru Langit */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 2. WADAH UTAMA (EFEK GLASSMORPHISM) */
+.wadah-kalkulator {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-width: 550px;
+    width: 100%;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(109, 40, 217, 0.05); /* Bayangan ungu tipis */
+    text-align: center;
+}
+
+/* 3. HALAMAN AWAL (START SCREEN) */
+#area-awal h2 {
+    color: #4c1d95; /* Ungu Gelap */
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+#area-awal p {
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-mulai {
+    background: linear-gradient(135deg, #7c3aed, #3b82f6); /* Tombol Gradasi Ungu-Biru */
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.2);
+}
+
+.btn-mulai:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+}
+
+/* 4. HALAMAN KUESIONER */
+.progres {
+    font-size: 0.9rem;
+    color: #7c3aed;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+#teks-pertanyaan {
+    color: #1e1b4b;
+    font-size: 1.35rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* 5. TOMBOL SKALA LIKERT (0 - 4) */
+.opsi-skala-wadah {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-skala {
+    background-color: #ffffff;
+    border: 2px solid #e9d5ff; /* Border Ungu Muda */
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 1rem;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.btn-skala:hover {
+    background-color: #f3e8ff;
+    border-color: #a78bfa;
+    color: #6d28d9;
+    transform: translateX(4px); /* Efek bergeser sedikit ke kanan saat disorot */
+}
+
+/* 6. HALAMAN HASIL DIAGNOSIS */
+#area-hasil h2 {
+    color: #1e1b4b;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.badge-skor {
+    display: inline-block;
+    background-color: #fee2e2; /* Default Merah Muda */
+    color: #ef4444;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+#total-skor-teks {
+    color: #6b7280;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* 7. PEMBATAS UKURAN GRAFIK DOUGHNUT */
+.wadah-grafik {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto 30px auto;
+}
+
+/* 8. TOMBOL ULANGI KALKULATOR */
+.btn-ulang {
+    background-color: #94a3b8;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-ulang:hover {
+    background-color: #64748b;
+    transform: scale(1.03);
+}
+
+/* 9. ANIMASI MUNCUL HALUS (FADE IN + SLIDE UP) */
+@keyframes munculHalus {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#area-awal, #area-kuesioner, #area-hasil {
+    animation: munculHalus 0.4s ease-out forwards;
+}
+
+/* 10. ATURAN PENYEMBUNYIAN */
+.sembunyi {
+    display: none !important;
+}
+
+
+/* 10. STYLE HALAMAN PEMBUKA (START SCREEN) & INPUT */
+#area-start {
+    text-align: center;
+    animation: munculHalus 0.5s ease-out forwards;
+}
+
+#area-start h2 {
+    color: #0f172a;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.sub-judul {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.grup-input {
+    text-align: left;
+    margin-bottom: 30px;
+    max-width: 100%;
+}
+
+.grup-input label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.grup-input input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    color: #1e293b;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.grup-input input:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.btn-start {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.btn-start:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Sapaan Nama di Halaman Hasil */
+#sapaan-nama {
+    color: #475569;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}

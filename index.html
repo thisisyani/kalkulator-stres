@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Skor Stres Klinis</title>
+    <!-- Hubungkan ke CSS kita nanti -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- 📊 SENJATA UTAMA: Mengambil library Grafik Chart.js dari internet -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="wadah-kalkulator">
+        <!-- 🎬 Halaman Start -->
+        <div id="area-awal">
+            <h2>📊 Kalkulator Skor Stres Klinis</h2>
+            <p>Ukur tingkat stres psikologismu berdasarkan instrumen skala klinis standar PSS.</p>
+    
+            <!-- TAMBAHKAN KOTAK INPUT NAMA DI SINI -->
+            <div style="margin-bottom: 20px; text-align: left; max-width: 100%;">
+                <label style="display: block; font-weight: 600; color: #4c1d95; margin-bottom: 8px;">Masukkan Namamu:</label>
+                <input type="text" id="input-nama-stres" placeholder="Contoh: Budi Santoso" style="width: 100%; padding: 12px; border: 2px solid #e9d5ff; border-radius: 12px; outline: none;" autocomplete="off">
+            </div>
+
+            <button class="btn-mulai" onclick="mulaiKalkulator()">Mulai Evaluasi</button>
+        </div>
+
+        <!-- 📝 Halaman Kuesioner (Awalnya Sembunyi) -->
+        <div id="area-kuesioner" class="sembunyi">
+            <div class="progres">Pertanyaan <span id="no-soal">1</span> dari 10</div>
+            <h3 id="teks-pertanyaan">Pertanyaan akan muncul di sini...</h3>
+            
+            <!-- Pilihan jawaban skala 0 sampai 4 -->
+            <div class="opsi-skala-wadah">
+                <button class="btn-skala" onclick="prosesJawaban(0)">0 - Tidak Pernah</button>
+                <button class="btn-skala" onclick="prosesJawaban(1)">1 - Hampir Tidak Pernah</button>
+                <button class="btn-skala" onclick="prosesJawaban(2)">2 - Kadang-kadang</button>
+                <button class="btn-skala" onclick="prosesJawaban(3)">3 - Cukup Sering</button>
+                <button class="btn-skala" onclick="prosesJawaban(4)">4 - Sangat Sering</button>
+            </div>
+        </div>
+    
+        <!-- 🏆 Halaman Hasil Diagnosis & Grafik -->
+        <div id="area-hasil" class="sembunyi">
+            <h2>Diagnosis Tingkat Stres</h2>
+    
+            <!-- TAMBAHKAN TAG SAPAAN NAMA DI SINI -->
+            <h3 id="sapaan-nama-stres"style="color: #6b7280; margin-bottom: 15px; font-weight: 500;">"Halo!"</h3>
+            <div class="badge-skor" id="status-stres">Kategori Stres</div>
+            <p id="total-skor-teks">Total Skormu: 0</p>
+            
+            <!-- 📈 AREA GRAFIK: Tempat canvas untuk menggambar grafik batang/pie -->
+            <div class="wadah-grafik">
+                <canvas id="grafikStres"></canvas>
+            </div>
+
+            <button class="btn-ulang" onclick="resetKalkulator()">🔄 Tes Ulang</button>
+        </div>
+    </div>
+
+    <!-- Hubungkan ke JavaScript kita nanti -->
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>
+
+        
